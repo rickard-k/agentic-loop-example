@@ -28,9 +28,28 @@ npm start
 
 This runs [agent.ts](agent.ts), which sends a sample prompt to Claude and lets it call tools as needed.
 
+### MCP server
+
+The same weather and news functions are also exposed as an [MCP](https://modelcontextprotocol.io) server ([mcp-server.ts](mcp-server.ts)), communicating over stdio.
+
+Run it directly:
+
+```
+npm run mcp
+```
+
+Or open it in the MCP Inspector for interactive testing:
+
+```
+npm run inspect
+```
+
+This starts a local web UI (with an auth token printed to the terminal) where you can list the server's tools and call them by hand.
+
 ## Project structure
 
 - [agent.ts](agent.ts) — the agent loop: sends messages to Claude, executes any requested tool calls, and feeds results back until Claude gives a final answer
-- [tools/index.ts](tools/index.ts) — aggregates all tool schemas and dispatches tool calls by name
-- [tools/weather.ts](tools/weather.ts) — `get_weather` tool, using Open-Meteo (no API key required)
-- [tools/news.ts](tools/news.ts) — `get_top_headlines` tool, using NewsAPI.org
+- [mcp-server.ts](mcp-server.ts) — exposes the same tools as an MCP server over stdio, for use with any MCP client (e.g. the Inspector, or Claude Desktop)
+- [tools/index.ts](tools/index.ts) — aggregates all tool schemas and dispatches tool calls by name (used by `agent.ts`)
+- [tools/weather.ts](tools/weather.ts) — `get_weather` logic, using Open-Meteo (no API key required)
+- [tools/news.ts](tools/news.ts) — `get_top_headlines` logic, using NewsAPI.org

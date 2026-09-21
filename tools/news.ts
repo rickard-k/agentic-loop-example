@@ -29,8 +29,8 @@ export const newsTool: Anthropic.Tool = {
 };
 
 export async function getTopHeadlines(input: {
-  country?: string;
-  category?: string;
+  country?: string | undefined;
+  category?: string | undefined;
 }): Promise<string> {
   const url = new URL("https://newsapi.org/v2/top-headlines");
   url.searchParams.set("country", input.country ?? "us");

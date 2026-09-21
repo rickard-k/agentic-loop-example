@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { tools, runTool } from "./tools/index.js";
+import { tools, runTool } from "./tools/index.ts";
 
 const client = new Anthropic();
 
@@ -41,7 +41,7 @@ async function runAgent(userMessage: string) {
   }
 }
 
-//example
+// example:
 runAgent(
   "What's the weather in Stockholm, and what's the top tech news today?"
 );

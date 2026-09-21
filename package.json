@@ -4,18 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsx --env-file=.env agent.ts"
+    "start": "node --env-file=.env agent.ts",
+    "mcp": "node --env-file=.env mcp-server.ts",
+    "inspect": "mcp-inspector node --env-file=.env mcp-server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
+  "engines": {
+    "node": ">=23.6.0"
+  },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.127.0"
+    "@anthropic-ai/sdk": "^0.127.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@modelcontextprotocol/inspector": "^2.7.0",
     "@types/node": "^26.6.2",
-    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }
 }
