@@ -1,6 +1,6 @@
 import type Anthropic from "@anthropic-ai/sdk";
-import { weatherTool, getWeather } from "./weather.js";
-import { newsTool, getTopHeadlines } from "./news.js";
+import { weatherTool, getWeather } from "./weather.ts";
+import { newsTool, getTopHeadlines } from "./news.ts";
 
 export const tools: Anthropic.Tool[] = [weatherTool, newsTool];
 
